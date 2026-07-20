@@ -22,7 +22,7 @@ class Drink extends MenuItem{
 
   @override
   double price() {
-    return baseprice * (10*toppings);
+    return baseprice + (10*toppings);
   }
 }
 
