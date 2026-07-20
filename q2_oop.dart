@@ -2,7 +2,11 @@ abstract class MenuItem{
   final String name;
   final double baseprice;
 
-  MenuItem(this.name,this.baseprice);
+  static int itemCount = 0;
+
+  MenuItem(this.name,this.baseprice){
+    itemCount++;
+  }
 
   double price();
 
@@ -105,4 +109,6 @@ void main(){
   showStatus(OrderStatus.pending);
   print("ยอดคงเหลือ: ${wallet.balance} บาท");
   print("---");  
+
+  print("จำนวนรายการที่ถูกสร้าง: ${MenuItem.itemCount}");
 }
