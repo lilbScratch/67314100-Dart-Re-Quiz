@@ -67,6 +67,19 @@ class Wallet{
   }
 }
 
+enum OrderStatus {pending,paid,cancelled}
+
+void showStatus(OrderStatus status){
+  switch(status){
+    case OrderStatus.pending:
+    print("สถานะ: รอชำระเงิน");
+    case OrderStatus.paid:
+    print("สถานะ: ชำระเงินแล้ว");
+    case OrderStatus.cancelled:
+    print("สถานะ: ยกเลิกคำสั้งซื้อ");
+  }
+}
+
 void main(){
   List<MenuItem> order = [
     Drink("ลาเต้", 65, 1),
@@ -86,5 +99,10 @@ void main(){
   wallet.balance = 300;
   wallet.balance = -300;
   wallet.pay(200);
-  
+  showStatus(OrderStatus.paid);
+  print("ยอดคงเหลือ: ${wallet.balance} บาท");
+  wallet.pay(200);
+  showStatus(OrderStatus.pending);
+  print("ยอดคงเหลือ: ${wallet.balance} บาท");
+  print("---");  
 }
