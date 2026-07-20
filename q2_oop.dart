@@ -55,7 +55,7 @@ class Wallet{
     if (amount >= 0){
       _balance = amount;
     } else{
-      print("ยอกเงินติดลบไม่ได้");
+      print("ยอดเงินติดลบไม่ได้");
     }
   }
 

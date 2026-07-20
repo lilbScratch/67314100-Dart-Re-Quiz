@@ -1,12 +1,12 @@
 Future<Map<String,dynamic>> fetchOrder(int orderid) async{
   await Future.delayed(Duration(seconds: 2));
   if (orderid <= 0) {
-    throw Exception("เกิดข้อผิดพลาด");
+    throw Exception("รหัสคำสั่งซื้อไม่ถูกต้อง");
   }
 
   return {
     "id" : orderid,
-    "name" : "ลาเต้",
+    "menu" : "ลาเต้",
     "total" : 65.0,
   };
 }
@@ -27,7 +27,7 @@ void main() async {
     var order = await fetchOrder(7);
     print("ได้ข้อมูลออเดอร์: $order");
   } catch (e) {
-    print("รหัสคำสั่งซื้อไม่ถูกต้อง");
+    print("เกิดข้อผิดพลาด $e");
   } finally {
     print("จบรายการ");
   }
@@ -36,7 +36,7 @@ void main() async {
     var order = await fetchOrder(0);
     print("ได้ข้อมูลออเดอร์: $order");
   } catch (e) {
-    print("รหัสคำสั่งซื้อไม่ถูกต้อง");
+    print("เกิดข้อผิดพลาด $e");
   } finally {
     print("จบรายการ");
   }
